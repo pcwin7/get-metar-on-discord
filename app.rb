@@ -2,7 +2,7 @@ require 'discordrb'
 require 'nokogiri'
 require 'open-uri'
 
-bot = Discordrb::Commands::CommandBot.new token: 'ACCES_TOKEN', client_id: CLIENT_ID, prefix: '!'
+bot = Discordrb::Commands::CommandBot.new token: ENV['ACCES_TOKEN'], client_id: ENV['CLIENT_ID'], prefix: '!'
 
 bot.command :metar do |event, *code|
 
