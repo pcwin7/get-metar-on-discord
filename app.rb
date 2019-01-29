@@ -2,7 +2,7 @@ require 'discordrb'
 require 'nokogiri'
 require 'open-uri'
 
-bot = Discordrb::Commands::CommandBot.new token: ENV['ACCES_TOKEN'], client_id: ENV['CLIENT_ID'], prefix: '!'
+bot = Discordrb::Commands::CommandBot.new token: ENV['ACCESS_TOKEN'], client_id: ENV['CLIENT_ID'], prefix: '!'
 
 bot.command :metar do |event, code|
         icao = code.upcase
@@ -31,3 +31,4 @@ bot.command :metar do |event, code|
 
         event.send_message("#{inHg} inHg")
 end
+bot.run
