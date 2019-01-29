@@ -4,9 +4,12 @@ require 'open-uri'
 
 bot = Discordrb::Commands::CommandBot.new token: ENV['ACCES_TOKEN'], client_id: ENV['CLIENT_ID'], prefix: '!'
 
-bot.command :metar do |event, *code|
+bot.command :metar do |event, code|
+        icao = code.upcase
 
-        icao = code[0].upcase
+        if icao.length == 2
+          icao = "RJ" + icao
+        end
 
         url = "https://www.time-j.net/MetarApp/MetarTaf/#{icao}"
 
